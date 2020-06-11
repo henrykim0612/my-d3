@@ -90,8 +90,10 @@ function overallTeamVis(incomingData) {
       });
   }
 
-  // empty() 활용
+  // 외부 아이콘을 내 SVG 안에  적용
   d3.html('/resources/svg/icon.svg', loadSVG);
+
+  // empty() 활용
   /*function loadSVG(svgData) {
     while( !d3.select(svgData).selectAll('path').empty() ) {
       d3.select('svg').node().appendChild( d3.select(svgData).select('path').node() );

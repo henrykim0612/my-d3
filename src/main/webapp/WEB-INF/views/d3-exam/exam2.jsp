@@ -15,7 +15,7 @@
     <div id="viz">
         <svg id="layer" style="width: 800px; height: 500px; border: 1px solid lightgray;"></svg>
     </div>
-    <div id="controls"></div>
+    <div id="controller"></div>
 
 </body>
 </html>

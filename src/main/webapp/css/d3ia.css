@@ -22,8 +22,8 @@ circle.inactive {
 
 #modal {
     position: fixed;
-    left: 150px;
-    top: 20px;
+    left: 30px;
+    top: 260px;
     z-index: 1;
     background: white;
     border: 1px black solid;
