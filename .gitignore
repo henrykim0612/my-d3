@@ -1,2 +1,6 @@
 /target/
 /my-d3.iml
+/.classpath
+/.project
+/.settings/
+/src/main/webapp/META-INF/

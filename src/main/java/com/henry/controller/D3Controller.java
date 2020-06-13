@@ -17,5 +17,17 @@ public class D3Controller {
     public String exam2() {
         return "/d3-exam/exam2";
     }
+    
+    
+    @GetMapping("/ch4/scatter")
+    public String ch4Scatter() {
+        return "/d3-exam/ch4/scatter";
+    }
+    
+    @GetMapping("/ch4/boxplot")
+    public String ch4Boxplot() {
+        return "/d3-exam/ch4/boxplot";
+    }
+    
 
 }
