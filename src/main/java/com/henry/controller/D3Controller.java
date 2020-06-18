@@ -28,6 +28,14 @@ public class D3Controller {
     public String ch4Boxplot() {
         return "/d3-exam/ch4/boxplot";
     }
-    
 
+    @GetMapping("/ch4/line")
+    public String ch4Line() {
+        return "/d3-exam/ch4/line";
+    }
+
+    @GetMapping("/ch4/round-line")
+    public String ch4RoundLine() {
+        return "/d3-exam/ch4/roundLine";
+    }
 }
