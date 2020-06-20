@@ -59,6 +59,18 @@ const main = (function() {
       .text(function(d) { return d.retweets; });
     
     
+    const line = d3.svg.line()
+      .x(function(d) { return xScale(d.day); })
+      .y(function(d) { return yScale(d.retweets); });
+    
+    svg.append('path')
+      .attr('d', line(data))
+      .attr('fill', 'none')
+      .attr('stroke', 'orange')
+      .attr('stroke-width', 2);
+    
+    
+    
     
   }
 
