@@ -34,12 +34,12 @@ const main = (function() {
 
     d3.select('svg')
       .append('g')
-      .attr('class', 'x axis')
+      .attr('class', 'xAxis')
       .attr('transform', 'translate(0, 400)')
       .call(xAxis)
 
     // 막대 아래 중앙에 축 레이블을 놓는다.
-    d3.select('g.axis').selectAll('text')
+    d3.select('g.xAxis').selectAll('text')
       .attr('dx', 50);
 
     function retweets() {
