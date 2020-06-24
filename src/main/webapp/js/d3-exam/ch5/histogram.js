@@ -46,7 +46,7 @@ const main = (function() {
 
       histoChart.value(function(d) {
         // 측정하고 있는 값을 변경
-        return d.retweets.length;
+        return d.retweets.length; // Faborites -> Retweets 로 변경
       });
 
       histoData = histoChart(tweetsData);
