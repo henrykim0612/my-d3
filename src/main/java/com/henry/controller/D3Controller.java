@@ -38,4 +38,10 @@ public class D3Controller {
     public String ch4RoundLine() {
         return "/d3-exam/ch4/roundLine";
     }
+
+    @GetMapping("/ch4/area")
+    public String ch4Area() {
+        return "/d3-exam/ch4/area";
+    }
+
 }

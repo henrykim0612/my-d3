@@ -11,7 +11,7 @@ const main = (function() {
   let _yAxis;
 
   function init() {
-    d3.csv('/resources/sample-data/tweetdata.csv', render)
+    d3.csv('/resources/sample-data/tweetdata.csv', render);
   }
 
   function render(data) {
