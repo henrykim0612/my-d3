@@ -44,4 +44,12 @@ public class D3Controller {
         return "/d3-exam/ch4/area";
     }
 
+
+    @GetMapping("/ch5/histogram")
+    public String ch5Histogram() {
+        return "/d3-exam/ch5/histogram";
+    }
+
+
+
 }
