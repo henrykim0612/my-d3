@@ -50,6 +50,11 @@ public class D3Controller {
         return "/d3-exam/ch5/histogram";
     }
 
+    @GetMapping("/ch5/pie")
+    public String ch5Pie() {
+        return "/d3-exam/ch5/pie";
+    }
+
 
 
 }
