@@ -39,8 +39,11 @@ const main = (function () {
 
   function change(key) {
 
-    const pieChart = d3.layout.pie().sort(null).value(function(d) {return !!key ? d[key] : d.numTweets;});
-    const colorScale = d3.scale.category10([0, 1, 2, 3]);
+    const changingKey = !!key ? key : 'numTweets';
+
+    const pieChart = d3.layout.pie().sort(null).value(function(d) {return d[changingKey];});
+    const extent = d3.extent(_data, function(d) {return d[changingKey];});
+    const colorScale = d3.scale.category10(extent);
     const radius = 500 / 2;
     const arc = d3.svg.arc().outerRadius(radius * 0.8).innerRadius(radius * 0.4);
     const outerArc = d3.svg.arc().outerRadius(radius * 0.9).innerRadius(radius * 0.9);
@@ -75,7 +78,7 @@ const main = (function () {
     const text = _pieG.select('g.labelG')
       .selectAll('text.label')
       .data(pieChart(_data.filter(function(d) {
-        return !!key ? d[key] > 0 : d.numTweets > 0; // 있는것만 화면에 보여지도록
+        return d[changingKey] > 0; // 있는것만 화면에 보여지도록
       })), dataKey);
 
     text
@@ -115,7 +118,7 @@ const main = (function () {
     const polyline = _pieG.select('g.polylineG')
       .selectAll('polyline.polyline')
       .data(pieChart(_data.filter(function(d) {
-        return !!key ? d[key] > 0 : d.numTweets > 0;
+        return d[changingKey] > 0;
       })), dataKey);
 
     polyline
