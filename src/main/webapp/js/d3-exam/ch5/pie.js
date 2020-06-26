@@ -39,7 +39,7 @@ const main = (function () {
 
   function change(key) {
 
-    const changingKey = !!key ? key : 'numTweets';
+    const changingKey = !!key ? key : 'numTweets'; // 기본값은 numTweets
 
     const pieChart = d3.layout.pie().sort(null).value(function(d) {return d[changingKey];});
     const extent = d3.extent(_data, function(d) {return d[changingKey];});
