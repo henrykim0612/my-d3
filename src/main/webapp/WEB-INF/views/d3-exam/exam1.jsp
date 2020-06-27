@@ -1,14 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/d3ia.css">
-
-<script src="${pageContext.request.contextPath}/3rd-party-lib/d3.v3.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/d3-exam/exam1.js"></script>
-<script src="${pageContext.request.contextPath}/js/d3-exam/colorbrewer.js"></script>
-
 <html>
 <head>
-    <title>Exam 1</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/d3ia.css">
+	<script src="${pageContext.request.contextPath}/js/d3-exam/exam1.js"></script>
+	<script src="${pageContext.request.contextPath}/js/d3-exam/colorbrewer.js"></script>
 </head>
 <body onload="createSoccerViz()">
 

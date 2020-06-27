@@ -6,10 +6,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MyAppController {
 
-    @GetMapping("/myapp/app1")
-    public String myApp1() {
-        return "/myapp/app1";
+    @GetMapping("/myapp/line")
+    public String line() {
+        return "myapp/line";
     }
+    
+    @GetMapping("/myapp/pie")
+    public String pie() {
+        return "myapp/pie";
+    }
+    
+    @GetMapping("/myapp/bar")
+    public String bar() {
+        return "myapp/bar";
+    }
+    
     
     
 }

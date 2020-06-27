@@ -28,7 +28,7 @@ public class MainController {
     
     @RequestMapping(value = {"/test"}, method = RequestMethod.GET)
     public String myTestbed(ModelMap map) {
-        return "/test/test";
+        return "test/test";
     }
     
 
