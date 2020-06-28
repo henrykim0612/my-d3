@@ -5,7 +5,7 @@
 		<script src="${pageContext.request.contextPath}/js/myapp/bar.js"></script>
 	</head>
 	<body>
-		<div id="content" class="flex-container flex-col">
+		<div class="flex-container flex-col">
 			<div class="flex-row justify-content-center">
 				<svg id="svg" style="width: 960px; height: 500px; border: 1px solid lightgray;"></svg>
 			</div>

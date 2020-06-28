@@ -21,6 +21,12 @@ public class MyAppController {
         return "myapp/bar";
     }
     
+    @GetMapping("/myapp/horizontal-bar")
+    public String horizontalBar() {
+        return "myapp/horizontalBar";
+    }
+    
+    
     
     
 }

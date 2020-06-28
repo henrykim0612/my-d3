@@ -9,16 +9,15 @@ const main = (function() {
     const xScale = d3.scale.linear().domain([0, 5]).range([0, 500]);
     const yScale = d3.scale.linear().domain([0, 10]).range([400, 0]);
     const xAxis = d3.svg.axis().scale(xScale).orient('bottom').ticks(5);
-    const histoChart = d3.layout.histogram();
-
-    // 히스토그램 분류할 값 결정
-    histoChart.bins([0, 1, 2, 3, 4, 5]).value(function (d) {
+    const histoChart = d3.layout.histogram().bins([0, 1, 2, 3, 4, 5]).value(function (d) {
       // 데이터 점에서 레이아웃이 분류할 값
       return d.favorites.length;
     });
 
     // 데이터를 포맷함
     let histoData = histoChart(tweetsData);
+    console.log(histoData);
+    
     d3.select('svg').selectAll('rect')
       .data(histoData)
       .enter()
@@ -39,8 +38,7 @@ const main = (function() {
       .call(xAxis)
 
     // 막대 아래 중앙에 축 레이블을 놓는다.
-    d3.select('g.xAxis').selectAll('text')
-      .attr('dx', 50);
+    d3.select('g.xAxis').selectAll('text').attr('dx', 50);
 
     function retweets() {
 
