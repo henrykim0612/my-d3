@@ -1,72 +1,107 @@
 const main = (function () {
+
+  const _margin = {
+    top : 15,
+    right : 25,
+    bottom : 15,
+    left : 60
+  };
   
-  let _xScale;
-  let _yScale;
-  let _xAxisDomain;
+  const _originWidth = 960;
+  const _originHeight = 500;
+  const _width = 960 - _margin.left - _margin.right;
+  const _height = 500 - _margin.top - _margin.bottom;
+  
   
   function init() {
-    d3.json('/resources/sample-data/tweets.json', function(err, data) { render(data.tweets); });
-  }
-
-  function render(tweets) {
     
-    // 데이터를 보기좋게 가공
-    const nestedTweets = d3.nest().key(function(d) { return d.user;}).entries(tweets);
-    nestedTweets.forEach(function(el) {
-      el.numTweets = el.values.length;
-      el.numFavorites = d3.sum(el.values, function(d) {return d.favorites.length;});
-      el.numRetweets = d3.sum(el.values, function(d) {return d.retweets.length;});
+    const sampleData = [
+      {
+        "name" : "Apples",
+        "value" : 20,
+      }, {
+        "name" : "Bananas",
+        "value" : 12,
+      }, {
+        "name" : "Grapes",
+        "value" : 19,
+      }, {
+        "name" : "Lemons",
+        "value" : 5,
+      }, {
+        "name" : "Limes",
+        "value" : 16,
+      }, {
+        "name" : "Oranges",
+        "value" : 26,
+      }, {
+        "name" : "Pears",
+        "value" : 30,
+      }
+    ];
+
+    // Value가 높은 순으로 정렬
+    const sortedData = sampleData.sort(function(a, b) {
+      return d3.ascending(a.value, b.value);
     });
     
-    _xAxisDomain = nestedTweets.map(function(el) { return el.key; });
+    render(sortedData);
     
-    const margin = {top: 100, right: 100, bottom: 100, left: 100}
-    const width = 960 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+  }
+  
+  function render(data) {
     
+    const maxValue = d3.max(data, function(d) { return d.value; });
+    const nameArr = data.map(function(d) { return d.name; });
 
-    _xScale = d3.scale.ordinal().domain(_xAxisDomain).rangePoints([0, 900]);
-    const xAxis = d3.svg.axis().scale(_xScale).orient('bottom');
+    const xScale = d3.scale.ordinal().domain(nameArr).rangeRoundBands([0, _width], .1);
+    const yScale = d3.scale.linear().domain([0, maxValue]).range([_height, 0]);
+
+    const xAxis = d3.svg.axis().scale(xScale).orient('bottom').tickSize(0);
+    const colorScale = d3.scale.category10(nameArr);
     
-    const svg = d3.select('#svg');
-    svg
+    const groupG = d3.select('#svgDiv')
+      .append('svg')
+      .attr('width', _originWidth)
+      .attr('height', _originHeight)
       .append('g')
-      .attr('class', 'barG')
-      .attr('transform', 'translate(480, 250)'); // 중앙으로
-    
-    svg
-      .append('g')
-      .attr('class', 'xAxis')
-      .attr('transform', 'translate(30, 450)')
+      .attr('id', 'groupG')
+      .attr('transform', 'translate(' + _margin.left + ', ' + _margin.top + ')');
+      
+    groupG.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0, ' + _height + ')')
       .call(xAxis);
     
-    
-    change(nestedTweets);
-    
-  }
-  
-  function change(data, key) {
-    
-    const yAxisKey = !!key ? key : 'numTweets';
-    const chart = d3.layout.histogram().bins(_xAxisDomain).value(function(d) { return d[yAxisKey]; });
-    const chartData = chart(data);
-    
-    _yScale = d3.scale.linear().domain(d3.extent(data, function(d) { return d[yAxisKey]; })).range([800, 0]);
-    
-    console.log(chartData);
-    d3.select('g.barG')
-      .selectAll('rect')
-      .data(chartData)
+    const barG = groupG.selectAll('.barG')
+      .data(data)
       .enter()
-      .append('rect')
-      .attr('x', function(d) { return _xScale(d['key']); })
-      .attr('y', function(d) { return _yScale(d[yAxisKey]); })
-      .attr('width', 50)
-      .attr('height', function(d) { return 800 - _yScale(d.y); });
+      .append('g')
+      .attr('class', 'barG');
+    
+    // Rect 추가
+    barG.append('rect')
+      .attr('class', 'rect')
+      .attr('x', function(d) { return xScale(d.name); })
+      .attr('y', _height)
+      .attr('width', xScale.rangeBand())
+      .attr('height', 0)
+      .style('fill', function(d) { return colorScale(d.name); })
+      .transition()
+      .duration(1000)
+      .attr('y', function(d) { return yScale(d.value); })
+      .attr('width', xScale.rangeBand())
+      .attr('height', function(d) { return _height - yScale(d.value); })
+      .style('fill', function(d) { return colorScale(d.name); });
+
+    // Bar 오른쪽에 Label 추가
+    barG.append('text')
+      .attr('class', 'label')
+      .attr('x', function(d) { return (xScale(d.name) + (xScale.rangeBand() / 2)) - 4; })
+      .attr('y', function(d) { return yScale(d.value) - 3;})
+      .text(function(d) { return d.value; });
     
   }
-  
-  
 
   return {
     init: init

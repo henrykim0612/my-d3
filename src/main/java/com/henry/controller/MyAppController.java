@@ -25,5 +25,10 @@ public class MyAppController {
     public String bar() {
         return "myapp/bar";
     }
+
+    @GetMapping("/myapp/time-xaxis-bar")
+    public String timeXAxisBar() {
+        return "myapp/timeXAxisBar";
+    }
     
 }

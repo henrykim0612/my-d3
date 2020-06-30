@@ -3,6 +3,11 @@
 <html>
 <head>
     <title>Henry's Spring APP</title>
+    <style type="text/css">
+        a {
+            width: 150px;
+        }
+    </style>
 </head>
 <body>
     <div class="flex-container flex-col">
@@ -29,6 +34,7 @@
         <h1 class="mt-30 mb-10">My Apps</h1>
         <a href="${pageContext.request.contextPath}/myapp/bar">Bar</a>
         <a href="${pageContext.request.contextPath}/myapp/horizontal-bar">Horizontal Bar</a>
+        <a href="${pageContext.request.contextPath}/myapp/time-xaxis-bar">Time XAxis Bar</a>
         <a href="${pageContext.request.contextPath}/myapp/line">Line</a>
         <a href="${pageContext.request.contextPath}/myapp/pie">Pie</a>
     </div>

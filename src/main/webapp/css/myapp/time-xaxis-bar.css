@@ -6,10 +6,16 @@ body {
 	font-size: 13px;
 }
 
-/* .axis path, .axis line {
+.axis path,
+.axis line {
 	fill: none;
-	display: none;
-} */
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.bar {
+	fill: darkred;
+}
 
 .label {
 	font-size: 13px;
