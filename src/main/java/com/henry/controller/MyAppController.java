@@ -15,18 +15,15 @@ public class MyAppController {
     public String pie() {
         return "myapp/pie";
     }
-    
-    @GetMapping("/myapp/bar")
-    public String bar() {
-        return "myapp/bar";
-    }
-    
+
     @GetMapping("/myapp/horizontal-bar")
     public String horizontalBar() {
         return "myapp/horizontalBar";
     }
-    
-    
-    
+
+    @GetMapping("/myapp/bar")
+    public String bar() {
+        return "myapp/bar";
+    }
     
 }

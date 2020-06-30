@@ -52,9 +52,11 @@ const main = (function () {
   function render(data) {
     
     const maxValue = d3.max(data, function(d) { return d.value; });
-    nameArr = data.map(function(d) { return d.name; });
+    const nameArr = data.map(function(d) { return d.name; });
+
     const xScale = d3.scale.linear().domain([0, maxValue]).range([0, _width]);
     const yScale = d3.scale.ordinal().domain(nameArr).rangeRoundBands([_height, 0], .1);
+
     const yAxis = d3.svg.axis().scale(yScale).orient('left').tickSize(0);
     const colorScale = d3.scale.category10(nameArr);
     
