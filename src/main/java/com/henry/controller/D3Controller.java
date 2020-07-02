@@ -55,6 +55,15 @@ public class D3Controller {
         return "d3-exam/ch5/pie";
     }
 
+    @GetMapping("/ch5/circle-pack")
+    public String ch5CirclePack() {
+        return "d3-exam/ch5/circlePack";
+    }
+
+    @GetMapping("/ch5/dendrogram")
+    public String ch5Dendrogram() {
+        return "d3-exam/ch5/dendrogram";
+    }
 
 
 }

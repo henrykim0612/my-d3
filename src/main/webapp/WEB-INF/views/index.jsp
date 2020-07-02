@@ -27,9 +27,11 @@
         <a href="${pageContext.request.contextPath}/d3/ch4/round-line">Round Line</a>
         <a href="${pageContext.request.contextPath}/d3/ch4/scatter">Scatter</a>
 
-        <h3 class="mt-30 mb-10">Chapter 5</h3>
+        <h3 class="mt-30 mb-10">Chapter 5(Layout)</h3>
         <a href="${pageContext.request.contextPath}/d3/ch5/pie">Pie</a>
         <a href="${pageContext.request.contextPath}/d3/ch5/histogram">Histogram</a>
+        <a href="${pageContext.request.contextPath}/d3/ch5/circle-pack">Circle Pack</a>
+        <a href="${pageContext.request.contextPath}/d3/ch5/dendrogram">Dendrogram</a>
 
         <h1 class="mt-30 mb-10">My Apps</h1>
         <a href="${pageContext.request.contextPath}/myapp/bar">Bar</a>
