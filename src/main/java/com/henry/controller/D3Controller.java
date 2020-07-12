@@ -61,9 +61,11 @@ public class D3Controller {
     }
 
     @GetMapping("/ch5/dendrogram")
-    public String ch5Dendrogram() {
-        return "d3-exam/ch5/dendrogram";
-    }
+    public String ch5Dendrogram() { return "d3-exam/ch5/dendrogram"; }
 
+    @GetMapping("/ch5/stack")
+    public String ch5Stack() {
+        return "d3-exam/ch5/stack";
+    }
 
 }

@@ -30,5 +30,8 @@ public class MyAppController {
     public String timeXAxisBar() {
         return "myapp/timeXAxisBar";
     }
+
+    @GetMapping("/myapp/stack-layout")
+    public String stackLayout() { return "myapp/stackLayout"; }
     
 }
