@@ -20,19 +20,20 @@
         <a href="${pageContext.request.contextPath}/d3/exam1">Exam1</a>
         <a href="${pageContext.request.contextPath}/d3/exam2">Exam2</a>
 
-        <h3 class="mt-30 mb-10">Chapter 4</h3>
+        <h1 class="mt-30 mb-10">Chapter 4</h1>
         <a href="${pageContext.request.contextPath}/d3/ch4/area">Area</a>
         <a href="${pageContext.request.contextPath}/d3/ch4/boxplot">Boxplot</a>
         <a href="${pageContext.request.contextPath}/d3/ch4/line">Line</a>
         <a href="${pageContext.request.contextPath}/d3/ch4/round-line">Round Line</a>
         <a href="${pageContext.request.contextPath}/d3/ch4/scatter">Scatter</a>
 
-        <h3 class="mt-30 mb-10">Chapter 5(Layout)</h3>
+        <h1 class="mt-30 mb-10">Chapter 5(Layout)</h1>
         <a href="${pageContext.request.contextPath}/d3/ch5/pie">Pie</a>
         <a href="${pageContext.request.contextPath}/d3/ch5/histogram">Histogram</a>
         <a href="${pageContext.request.contextPath}/d3/ch5/circle-pack">Circle Pack</a>
         <a href="${pageContext.request.contextPath}/d3/ch5/dendrogram">Dendrogram</a>
         <a href="${pageContext.request.contextPath}/d3/ch5/stack">Stack</a>
+        <a href="${pageContext.request.contextPath}/d3/ch5/word-cloud">Word Cloud</a>
 
         <h1 class="mt-30 mb-10">My Apps</h1>
         <a href="${pageContext.request.contextPath}/myapp/bar">Bar</a>

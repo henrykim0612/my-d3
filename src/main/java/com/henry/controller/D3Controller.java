@@ -68,4 +68,9 @@ public class D3Controller {
         return "d3-exam/ch5/stack";
     }
 
+    @GetMapping("/ch5/word-cloud")
+    public String wordCloud() {
+        return "d3-exam/ch5/wordCloud";
+    }
+
 }
