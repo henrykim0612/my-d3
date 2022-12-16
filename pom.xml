@@ -12,7 +12,7 @@
         <deploy-version>DEV</deploy-version>
         <java-version>1.8</java-version>
         <org.springframework-version>5.2.3.RELEASE</org.springframework-version>
-        <org.springframework.spring-webmvc-version>5.2.3.RELEASE</org.springframework.spring-webmvc-version>
+        <org.springframework.spring-webmvc-version>5.2.20.RELEASE</org.springframework.spring-webmvc-version>
         <slf4j-log4j12-version>1.7.30</slf4j-log4j12-version>
         <servlet-version>3.1.0</servlet-version>
         <jsp-version>2.2</jsp-version>
